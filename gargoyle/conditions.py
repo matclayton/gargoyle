@@ -69,6 +69,7 @@ class Choice(Field):
 
 class Range(Field):
     def is_active(self, condition, value):
+        condition = map(int, condition.split('-'))
         return value >= condition[0] and value <= condition[1]
 
     def validate(self, data):
